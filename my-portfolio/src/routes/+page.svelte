@@ -82,6 +82,11 @@
 </div>
 
 <style>
+	:root {
+		--animation-rotation-duration: 4s;
+		--animation-fade-in-duration: 1s;
+	}
+
 	@keyframes fadein-and-rotate {
 		0% {
 			opacity: 0;
@@ -95,7 +100,7 @@
 		}
 	}
 
-	@keyframes fadein {
+	@keyframes fade-in {
 		0% {
 			opacity: 0;
 		}
@@ -104,26 +109,58 @@
 		}
 	}
 
+	@keyframes left-disappear {
+		0% {
+			left: 0;
+		}
+		100% {
+			left: -30vw;
+		}
+	}
+
+	@keyframes move-left {
+		0% {
+			margin-left: 15vh;
+		}
+		100% {
+			margin-left: 0;
+		}
+	}
+
 	#welcome {
 		transform-origin: 10% 50%;
 		animation-name: fadein-and-rotate;
-		animation-duration: 4s;
+		animation-duration: var(--animation-rotation-duration);
 		animation-fill-mode: forwards;
 
 		position: absolute;
-		font-family: Allerta Stencil;
+		font-family: Allerta Stencil, serif;
 		font-size: 15vh;
-		margin: 0px;
+		margin: 0;
+		left: 0;
 	}
 
 	#presentation {
 		margin-left: 15vh;
-		animation-name: fadein;
-		animation-duration: 1s;
-		animation-delay: 4s;
+		animation-name: fade-in;
+		animation-duration: var(--animation-fade-in-duration);
+		animation-delay: var(--animation-rotation-duration);
 		animation-fill-mode: forwards;
-
+		width: fit-content;
 		opacity: 0;
+	}
+
+	@media (max-width: 768px) {
+		#welcome {
+			animation-name: fadein-and-rotate, left-disappear;
+			animation-delay: 0s, var(--animation-rotation-duration);
+			animation-duration: var(--animation-rotation-duration), var(--animation-fade-in-duration);
+		}
+		#presentation {
+			animation-name: fade-in, move-left;
+			animation-delay: var(--animation-rotation-duration), var(--animation-rotation-duration);
+			animation-duration: var(--animation-rotation-duration), var(--animation-fade-in-duration);
+		}
 	}
 
 	#presentation > div {
@@ -131,9 +168,8 @@
 	}
 
 	h1 {
-		margin: 0;
 		font-size: 4em;
-		margin-bottom: 0;
+		margin: 0;
 	}
 	p {
 		margin-top: 0;
