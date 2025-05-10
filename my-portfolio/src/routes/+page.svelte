@@ -19,8 +19,8 @@
 		<p>Mi lengua materna es el <b>italiano</b>. Además, hablo <b>espanol</b> e <b>inglés</b>.</p>
 		<p>He realizado esta página web como muestra de mis habilidades.</p>
 		<p>
-			Puedes contactar conmigo via Linkdn <a
-				href="https://www.linkedin.com/in/francesco-fornari-806556110/">linked-in</a
+			Puedes contactar conmigo via <a
+				href="https://www.linkedin.com/in/francesco-fornari-806556110/">Linkedin</a
 			>
 			o por email
 			<a href="mailto:francesco.fornari.96@gmail.com">francesco.fornari.96@gmail.com</a>
@@ -44,7 +44,7 @@
 		<p>This is a website made and hosted by my myself.</p>
 		<p>
 			Feel free to contact me at <a href="https://www.linkedin.com/in/francesco-fornari-806556110/"
-				>linked-in</a
+				>Linkedin</a
 			>
 			or by mail at
 			<a href="mailto:francesco.fornari.96@gmail.com">francesco.fornari.96@gmail.com</a>
@@ -74,7 +74,7 @@
 		<p>Questo è un sito creato e hostato da me.</p>
 		<p>
 			Se ti piace quello che faccio sentiti libero di contattarmi a <a
-				href="https://www.linkedin.com/in/francesco-fornari-806556110/">linked-in</a
+				href="https://www.linkedin.com/in/francesco-fornari-806556110/">Linkedin</a
 			>
 			via mail a <a href="mailto:francesco.fornari.96@gmail.com">francesco.fornari.96@gmail.com</a>
 		</p>
