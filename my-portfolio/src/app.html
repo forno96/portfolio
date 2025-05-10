@@ -5,10 +5,15 @@
 	<meta charset="utf-8" />
 	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Franceso Fornari portfolio</title>
+
+	<link rel="stylesheet" type="text/css" href="%sveltekit.assets%/css/base.css" />
+    <script>document.documentElement.className = "js"; var supportsCssVars = function () { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e }; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+
 	%sveltekit.head%
 </head>
 
-<body data-sveltekit-preload-data="hover" class="demo-4">
+<body data-sveltekit-preload-data="hover">
 	<style>
 		/* allerta-latin-400-normal */
 		@font-face {
@@ -31,14 +36,44 @@
 		}
 
 		body {
-			background-color: black;
-
-			font-family: 'Allerta';
+			background-color: #a9e7da;
+			font-family: 'Allerta', serif;
 			font-size: larger;
 			color: white;
 		}
 	</style>
+
+	<!-- Background -->
+    <main style="position: absolute; width: 100%" class="demo-3">
+        <div class="content content--fixed">
+            <header class="codrops-header">
+                <div class="codrops-links">
+                    <a class="codrops-icon codrops-icon--prev"
+                        href="https://tympanus.net/Development/AnimatedFrameSlideshow/" title="Previous Demo"><svg
+                            class="icon icon--arrow">
+                            <use xlink:href="#icon-arrow"></use>
+                        </svg></a>
+                    <a class="codrops-icon codrops-icon--drop" href="https://tympanus.net/codrops/?p=33168"
+                        title="Back to the article"><svg class="icon icon--drop">
+                            <use xlink:href="#icon-drop"></use>
+                        </svg></a>
+                </div>
+            </header>
+        </div>
+        <div class="content">
+            <canvas class="scene scene--full" id="scene"></canvas>
+        </div>
+    </main>
+
 	<div style="display: contents">%sveltekit.body%</div>
+
+    <script>
+        setTimeout(() => document.body.classList.add('render'), 60);
+    </script>
+    <script src="%sveltekit.assets%/js/three.min.js"></script>
+    <script src="%sveltekit.assets%/js/perlin.js"></script>
+    <script src="%sveltekit.assets%/js/TweenMax.min.js"></script>
+    <script src="%sveltekit.assets%/js/animation.js"></script>
 </body>
 
 </html>
