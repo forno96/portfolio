@@ -80,6 +80,11 @@
 			via mail a <a href="mailto:francesco.fornari.96@gmail.com">francesco.fornari.96@gmail.com</a>
 		</p>
 	</div>
+
+
+	<div id="credits">
+		<p>Animation Made By</p>
+	</div>
 </div>
 
 <style>
