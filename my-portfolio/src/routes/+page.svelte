@@ -176,10 +176,12 @@
 		margin-bottom: 0.3em;
 	}
 	a {
-		color: #ffffff;
+		color: #323232;
 		font-weight: bold;
 	}
 	.lang {
-		color: #969696;
+		font-size: 2em;
+		color: #f5f5f5;
+		font-weight: bold;
 	}
 </style>
