@@ -1,0 +1,46 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main # Triggera su push al branch main
+    tags:
+      - '*.*.*'  # Triggera su tag che seguono il pattern X.Y.Z (es. 1.0.0, 1.2.3)
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout del codice sorgente
+      - name: Checkout repository
+        uses: actions/checkout@v4 # Azione ufficiale per il checkout del codice
+
+      # Step 2: Login a Docker Hub
+      # È necessario configurare i secrets DOCKERHUB_USERNAME e DOCKERHUB_TOKEN nelle impostazioni del repository GitHub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }} # Username per il registry Docker
+          password: ${{ secrets.DOCKERHUB_TOKEN }}    # Token di accesso per il registry Docker
+
+      # Step 3: Estrae i metadati del Docker (tag e label)
+      - name: Extract Docker metadata
+        id: meta # Assegna un ID a questo step per referenziarne l'output
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/portfolio # Sostituisci con il nome della tua immagine (es. mioutente/miaimmagine)
+          tags: |
+            # Imposta il tag 'latest' per i push sul branch di default (main)
+            type=raw,value=latest,enable={{is_default_branch}}
+            # Imposta il tag con il nome del tag Git
+            type=ref,event=tag
+
+      # Step 4: Build e push dell'immagine Docker
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }} # Utilizza i tag generati dallo step 'meta'
+          labels: ${{ steps.meta.outputs.labels }} # Utilizza le label generate dallo step 'meta'
