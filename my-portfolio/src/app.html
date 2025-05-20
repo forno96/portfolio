@@ -2,63 +2,68 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8" />
-	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Franceso Fornari portfolio</title>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="%sveltekit.assets%/favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Franceso Fornari portfolio</title>
 
-	<link rel="stylesheet" type="text/css" href="%sveltekit.assets%/css/base.css" />
-    <script>document.documentElement.className = "js"; var supportsCssVars = function () { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e }; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+    <link rel="stylesheet" type="text/css" href="%sveltekit.assets%/css/base.css"/>
+    <script>document.documentElement.className = "js";
+    var supportsCssVars = function () {
+        var e, t = document.createElement("style");
+        return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e
+    };
+    supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
 
-	%sveltekit.head%
+    %sveltekit.head%
 </head>
 
 <body data-sveltekit-preload-data="hover">
-	<style>
-		/* allerta-latin-400-normal */
-		@font-face {
-			font-family: 'Allerta';
-			font-style: normal;
-			font-display: swap;
-			font-weight: 400;
-			src: url(https://cdn.jsdelivr.net/fontsource/fonts/allerta@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/allerta@latest/latin-400-normal.woff) format('woff');
-			unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-		}
+<style>
+    /* allerta-latin-400-normal */
+    @font-face {
+        font-family: 'Allerta';
+        font-style: normal;
+        font-display: swap;
+        font-weight: 400;
+        src: url(https://cdn.jsdelivr.net/fontsource/fonts/allerta@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/allerta@latest/latin-400-normal.woff) format('woff');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
 
-		/* allerta-stencil-latin-400-normal */
-		@font-face {
-			font-family: 'Allerta Stencil';
-			font-style: normal;
-			font-display: swap;
-			font-weight: 400;
-			src: url(https://cdn.jsdelivr.net/fontsource/fonts/allerta-stencil@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/allerta-stencil@latest/latin-400-normal.woff) format('woff');
-			unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-		}
+    /* allerta-stencil-latin-400-normal */
+    @font-face {
+        font-family: 'Allerta Stencil';
+        font-style: normal;
+        font-display: swap;
+        font-weight: 400;
+        src: url(https://cdn.jsdelivr.net/fontsource/fonts/allerta-stencil@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/allerta-stencil@latest/latin-400-normal.woff) format('woff');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
 
-		body {
-			background-color: #a9e7da;
-			font-family: 'Allerta', serif;
-			font-size: larger;
-			color: #323232;
-		}
-	</style>
+    body {
+        background-color: #a9e7da;
+        font-family: 'Allerta', serif;
+        font-size: larger;
+        color: #323232;
+    }
+</style>
 
-	<!-- Background -->
-    <main style="position: absolute; width: 100%" class="demo-3">
-        <div class="content">
-            <canvas class="scene scene--full" id="scene" style="z-index: -150;"></canvas>
-        </div>
-    </main>
+<!-- Background -->
+<main style="position: absolute; width: 100%" class="demo-3">
+    <div class="content">
+        <canvas class="scene scene--full" id="scene" style="z-index: -150;"></canvas>
+    </div>
+</main>
 
-	<div style="display: contents">%sveltekit.body%</div>
+<div style="display: contents">%sveltekit.body%</div>
 
-    <script>
-        setTimeout(() => document.body.classList.add('render'), 60);
-    </script>
-    <script src="%sveltekit.assets%/js/three.min.js"></script>
-    <script src="%sveltekit.assets%/js/perlin.js"></script>
-    <script src="%sveltekit.assets%/js/TweenMax.min.js"></script>
-    <script src="%sveltekit.assets%/js/animation.js"></script>
+<script>
+    setTimeout(() => document.body.classList.add('render'), 60);
+</script>
+<script src="%sveltekit.assets%/js/three.min.js"></script>
+<script src="%sveltekit.assets%/js/perlin.js"></script>
+<script src="%sveltekit.assets%/js/TweenMax.min.js"></script>
+<script src="%sveltekit.assets%/js/animation.js"></script>
 </body>
 
 </html>
