@@ -1,3 +1,11 @@
+<script>
+    import {env} from '$env/dynamic/public';
+
+    const umami_tracker = env.PUBLIC_UMAMI_TRACKER || ''
+</script>
+<svelte:head>
+    {@html umami_tracker}
+</svelte:head>
 <p id="welcome">Welcome</p>
 <div id="presentation">
     <h1>Francesco Fornari</h1>
