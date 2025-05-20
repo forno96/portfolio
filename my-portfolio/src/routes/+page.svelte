@@ -89,9 +89,33 @@
         </p>
     </div>
 
+    <br/>
+    <div>
+        <p>Credits</p>
+        <div id="credits">
+            <a href="https://github.com/forno96">
+                <button>
+                    Made by myself
+                </button>
+            </a>
 
-    <div id="credits">
-        <p>Animation Made By</p>
+            <a href="https://svelte.dev/">
+                <button>
+                    Made with Svelte
+                </button>
+            </a>
+            <a href="https://github.com/Mamboleoo">
+                <button>
+                    Background made by Louis Hoebregts
+                </button>
+            </a>
+
+            <a href="https://fonts.google.com/specimen/Allerta+Stencil">
+                <button>
+                    Font used: Allerta Stencil
+                </button>
+            </a>
+        </div>
     </div>
 </div>
 
@@ -201,5 +225,26 @@
         font-size: 2em;
         color: #f5f5f5;
         font-weight: bold;
+    }
+
+    #credits {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        column-gap: 0.5em;
+        row-gap: 0.5em;
+    }
+
+    #credits button {
+        border: black solid 1px;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    button {
+        background: transparent;
+    }
+
+    button:hover {
+        background: hsla(0, 0%, 100%, 30%);
     }
 </style>
