@@ -1,10 +1,13 @@
 <script>
     import {env} from '$env/dynamic/public';
 
-    const umami_tracker = env.PUBLIC_UMAMI_TRACKER || ''
+    const umami_tracker_script = env.PUBLIC_UMAMI_TRACKER_SCRIPT || null;
+    const umami_tracker_website_id = env.PUBLIC_UMAMI_TRACKER_WEBSITE_ID || null;
 </script>
 <svelte:head>
-    {@html umami_tracker}
+    {#if umami_tracker_script && umami_tracker_website_id}
+        <script defer src={umami_tracker_script} data-website-id={umami_tracker_website_id}></script>
+    {/if}
 </svelte:head>
 <p id="welcome">Welcome</p>
 <div id="presentation">
