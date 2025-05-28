@@ -222,6 +222,7 @@
     a {
         color: #323232;
         font-weight: bold;
+        -webkit-text-fill-color: #323232;
     }
 
     .lang {
@@ -241,6 +242,7 @@
         border: black solid 1px;
         border-radius: 5px;
         padding: 10px;
+        height: 100%;
     }
 
     button {
